@@ -34,7 +34,6 @@ Route::group(['prefix' => 'account'],function(){
 
         Route::get('profile',[DashboardController::class,'profile'])->name('account.profile');
         Route::post('kembali',[DashboardController::class,'kembali'])->name('components.koleksi-table');
-        Route::delete('{koleksi}/profile',[DashboardController::class,'destroy'])->name('koleksi.destroy');
         
         Route::get('books',[DashboardController::class,'books'])->name('account.books');
         Route::post('books',[DashboardController::class,'comment'])->name('account.comment');

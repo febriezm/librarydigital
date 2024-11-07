@@ -29,14 +29,6 @@ class DashboardController extends Controller
         return view('profile', ['koleksipribadi' => $koleksipribadi]);
     }
 
-    public function destroy(Koleksipribadi $koleksi) {
- 
-        // delete koleksipribadi from database
-        $koleksi->delete();
- 
-        return redirect()->route('account.profile')->with('success','History books deleted successfully.');
-     }
-
     public function kembali(Request $request)
     {
         //user & buku yang di pilih untuk dikembalikan benar, maka berhasil mengembalikan buku

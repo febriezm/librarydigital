@@ -83,6 +83,24 @@
         @endforeach
       </div>
     </div>
+
+    <!-- about us -->
+<section class="bg-gray-100" id="aboutus">
+  <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+          <div class="max-w-lg">
+              <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
+              <p class="mt-4 text-gray-600 text-lg">
+                Pustakalaya is a digital library to facilitate building the future of literacy in Indonesia. 
+                We are committed to presenting innovative solutions in the world of literacy, as well as 
+                encouraging equitable and quality access to education for all levels of society.</p>
+          </div>
+          <div class="mt-12 md:mt-0">
+              <img src="{{ URL('images/img.jpg') }}" alt="About Us Image" class="object-cover rounded-lg shadow-md transform transition duration-500 hover:scale-110">
+          </div>
+      </div>
+  </div>
+</section>
    
 <x-footer></x-footer>
 

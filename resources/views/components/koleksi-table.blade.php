@@ -29,15 +29,6 @@
                   <span class="text-base text-white">Return</span>
                 </button>
               </div>
-              <div class="mt-3 p-0">
-                <form action="{{ route('koleksi.destroy', $koleksi) }}" method="post">
-                    @method('delete')
-                    @csrf
-                <button class="w-full bg-red-500 hover:bg-red-400 text-white px-7 py-2 rounded-md font-semibold">
-                  <span class="text-base text-white">Delete</span>
-                </button>
-            </form>
-              </div>
             
         </div>
     </div>
