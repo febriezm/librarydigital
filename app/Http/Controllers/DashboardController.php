@@ -63,19 +63,15 @@ class DashboardController extends Controller
 
     public function books(Request $request) 
     {
-        $kategoris = Kategoribuku::all();
 
-        if ($request->namakategori||$request->judul) {
-            $books = Book::where('judul', 'like', '%'.$request->judul.'%')
-            ->whereHas('kategoris', function($q) use($request) {
-                $q->where('kategoribukus.id', $request->namakategori);
-            })->get();
+        if ($request->judul) {
+            $books = Book::where('judul', 'like', '%'.$request->judul.'%')->get();
         }
         else {
             $books = Book::all();
         }
 
-        return view('booklist', ['books' => $books, 'kategoris' => $kategoris]);
+        return view('booklist', ['books' => $books]);
     }
 
     public function comment(Request $request)

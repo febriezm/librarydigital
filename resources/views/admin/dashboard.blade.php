@@ -91,9 +91,22 @@
           </div>
         </div>
         
-        <x-peminjaman-table :peminjaman='$peminjaman'></x-peminjaman-table>
-        
+        <h1 class="flex justify-center mx-5 text-2xl font-semibold">Report Peminjaman Buku</h1>
+        <canvas class="mx-10" id="chart"></canvas>
+      
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var ctx = document.getElementById('chart').getContext('2d');
+    var peminjamanChart = new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels: {!! json_encode($labels) !!},
+        datasets: {!! json_encode($datasets) !!}
+      },
+    });
+  </script>
 
 </x-layout>

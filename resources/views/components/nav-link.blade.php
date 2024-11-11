@@ -1,3 +1,3 @@
-<div>
-    <!-- Well begun is half done. - Aristotle -->
-</div>
+<a {{ $attributes }} class="{{ $active ? 
+'border-opacity-100 py-4 border-b-2 border-[#00264A]' : '' }}" 
+aria-current="{{ $active ? 'page' : false }}">{{ $slot }}</a>

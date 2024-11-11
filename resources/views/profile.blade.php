@@ -47,7 +47,12 @@
         <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
             <div class="w-full flex flex-col 2xl:w-1/3">
                 <div class="flex-1 bg-white rounded-lg shadow-xl p-8">
-                    <h4 class="text-xl text-gray-900 font-bold">History Of Borrowed Book's</h4>
+                    <span class="flex justify-between mt-4 p-0">
+                        <h4 class="flex justify-start text-xl text-gray-900 font-bold">History Of Borrowed Book's</h4>
+                        <button onclick="openModal()" class="bg-[#00264A] hover:bg-[#00264a8c] text-white px-7 py-2 rounded-md font-semibold">
+                          <span class="text-base">Return Book</span>
+                        </button>
+                      </span>
                     <div class="h-full flex w-full justify-center items-center p-2">
 
                         <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
@@ -61,5 +66,130 @@
             </div>
         </div>
 
-   
+<!--Modal-->
+
+<div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+    style="background: rgba(0,0,0,.7);">
+    <div
+        class="border border-[#00264a8c] modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        <div class="modal-content py-4 text-left px-6">
+            <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+                <p class="text-2xl font-bold">Return Book's</p>
+                <div class="modal-close cursor-pointer z-50">
+                    <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18">
+                        <path
+                            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <!--Body-->
+            <div class="my-5">
+                <form action="{{ route('components.koleksi-table') }}" method="post">
+                    @csrf
+                        <select
+                                class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                name="user_id" id="user_id">
+                                <option value="{{ Auth::user()->id }}">{{ Auth::user()->username }}</option>
+                        </select>
+        
+                        <select
+                                class="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                name="book_id" id="book_id" required>
+                                <option value="">Select Title Book's</option>
+                                @foreach ($koleksipribadi as $koleksi)
+                                    <option value="{{ $koleksi->book->id }}">{{ $koleksi->book->judul }}</option>
+                                @endforeach
+                        </select>
+                    
+            </div>
+            <!--Footer-->
+            <div class="flex justify-end pt-2">
+                <button type="submit"
+                    class="focus:outline-none px-4 bg-[#00264A] p-3 ml-3 rounded-lg text-white hover:bg-[#00264a8c]">Confirm</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<!-- component -->
+<style>
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    .animated.faster {
+        -webkit-animation-duration: 500ms;
+        animation-duration: 500ms;
+    }
+
+    .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+    }
+
+    .fadeOut {
+        -webkit-animation-name: fadeOut;
+        animation-name: fadeOut;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+    const modal = document.querySelector('.main-modal');
+    const closeButton = document.querySelectorAll('.modal-close');
+
+    const modalClose = () => {
+        modal.classList.remove('fadeIn');
+        modal.classList.add('fadeOut');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 500);
+    }
+
+    const openModal = () => {
+        modal.classList.remove('fadeOut');
+        modal.classList.add('fadeIn');
+        modal.style.display = 'flex';
+    }
+
+    for (let i = 0; i < closeButton.length; i++) {
+
+        const elements = closeButton[i];
+
+        elements.onclick = (e) => modalClose();
+
+        modal.style.display = 'none';
+
+        window.onclick = function (event) {
+            if (event.target == modal) modalClose();
+        }
+    }
+</script>
+
 </x-layout>

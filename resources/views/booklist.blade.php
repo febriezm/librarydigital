@@ -8,27 +8,10 @@
     {{ Session::get('success') }} 
     </x-alertsuccess>
     @endif
-
-    <div class="relative w-full h-auto">
-      <img class="h-96 w-full object-cover rounded-md" src="{{ URL('images/img.jpg') }}" alt="Random image">
-      <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
-      <div class="absolute inset-0 flex items-center justify-center">
-          <h2 class="text-white text-3xl font-bold">Find the books you need</h2>
-      </div>
-  </div>
   
-
-    <form action="" method="get">
+<!--search bar -->
     <div class="flex px-7 mt-6 items-center justify-between">
-        <div class="relative w-auto group">
-          <select name="namakategori" id="namakategori" class="rounded-md border border-gray-300 bg-white py-3 px-3 text-base font-normal text-[#00264A] outline-none focus:border-[#00264A] focus:shadow-md w-full select-multiple">
-            <option value="">Select Kategori</option>
-            @foreach ($kategoris as $item)
-                <option value="{{ $item->id }}">{{ $item->namakategori }}</option>
-            @endforeach
-          </select>
-      </div>
-        <!--search bar -->
+      <form action="" method="get">
         <div hidden class="md:block">
             <div class="relative flex items-center text-[#00264A] focus-within:text-[#00264A]">
                 <button class="absolute left-4 h-6 flex items-center pr-3 border-r border-gray-300">
@@ -39,15 +22,22 @@
                 <input type="text" name="judul" id="judul" autocomplete="off" placeholder="Search book's title" class="w-full pl-14 pr-4 py-2.5 rounded-xl text-sm text-[#00264A] outline-none border border-gray-300 focus:border-[#00264A] transition">
             </div>
         </div>
+      </form>
+      <div class="mt-4 p-0">
+        <button onclick="openModal()" class="bg-[#00264A] hover:bg-[#00264a8c] text-white px-7 py-2 rounded-md font-semibold">
+          <span class="text-base">Review Book</span>
+        </button>
+      </div>
     </div>
-</form>
 
     <div class="min-h-screen bg-gradient-to-tr flex justify-center items-center mb-10">
       <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 space-y-4 md:space-y-5">
         @foreach ($books as $book)
         <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
           <div class="relative">
+            <a href="{{ route('account.borrow') }}">
             <img src="{{ url('storage/' . $book->foto) }}" class="h-96 w-full object-cover" draggable="false"/>
+          </a>
             <p class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">{{ $book->th_terbit }}</p>
             <p class="absolute bottom-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-lt-lg rounded-br-lg">
               @foreach ($book->kategoris as $kategori)
@@ -77,11 +67,6 @@
             </div>
              <div class="flex space-x-1 justify-end">
               <p class="text-base font-medium {{ $book->status == 'In stock' ? 'text-green-500' : 'text-red-500' }}">{{ $book->status }}</p> 
-            </div>
-            <div class="mt-4 p-0">
-              <button onclick="openModal()" class="w-full flex justify-center items-center font-bold cursor-pointer hover:underline">
-                <span class="text-base">Reviews</span>
-              </button>
             </div>
           </div>
         </div>

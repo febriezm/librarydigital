@@ -24,7 +24,7 @@
                     <span class="ml-2 text-sm font-medium">Dasboard</span>
                 </a>
 
-                <a class="flex items-center w-full h-12 px-3 mt-2 hover:bg-gray-300 rounded" href="{{ route('petugas.buku') }}">
+                <a class="flex items-center w-full h-12 px-3 mt-2 bg-gray-400 hover:bg-gray-300 rounded" href="{{ route('petugas.buku') }}">
                     <svg class="h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M6 4H5a1 1 0 1 1 0-2h11V1a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V5a1 1 0 0 0-1-1h-7v8l-2-2-2 2V4z" />

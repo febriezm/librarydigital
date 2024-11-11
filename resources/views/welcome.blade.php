@@ -17,37 +17,32 @@
   </div>
 </div>
 
-
+<!--search bar -->
+<div class="flex px-6 mt-3 items-center justify-between">
   <form action="" method="get">
-    <div class="flex px-7 mt-6 items-center justify-between">
-        <div class="w-auto group">
-          <select name="namakategori" id="namakategori" class="rounded-md border border-gray-300 py-3 px-3 text-base font-normal text-[#00264A] outline-none focus:border-[#00264A] focus:shadow-md w-full select-multiple">
-            <option value="">Select Kategori</option>
-            @foreach ($kategoris as $item)
-                <option value="{{ $item->id }}">{{ $item->namakategori }}</option>
-            @endforeach
-          </select>
-      </div>
-        <!--search bar -->
-        <div hidden class="md:block">
-            <div class="relative flex items-center text-[#00264A] focus-within:text-[#00264A]">
-                <button class="absolute left-4 h-6 flex items-center pr-3 border-r border-gray-300">
-                <svg xmlns="http://ww50w3.org/2000/svg" class="w-4 fill-current" viewBox="0 0 35.997 36.004">
-                    <path id="Icon_awesome-search" data-name="search" d="M35.508,31.127l-7.01-7.01a1.686,1.686,0,0,0-1.2-.492H26.156a14.618,14.618,0,1,0-2.531,2.531V27.3a1.686,1.686,0,0,0,.492,1.2l7.01,7.01a1.681,1.681,0,0,0,2.384,0l1.99-1.99a1.7,1.7,0,0,0,.007-2.391Zm-20.883-7.5a9,9,0,1,1,9-9A8.995,8.995,0,0,1,14.625,23.625Z"></path>
-                </svg>
-                </button>
-                <input type="text" name="judul" id="judul" autocomplete="off" placeholder="Search book's title" class="w-full pl-14 pr-4 py-2.5 rounded-xl text-sm text-[#00264A] outline-none border border-gray-300 focus:border-[#00264A] transition">
-            </div>
+    <div class="flex px-6 mt-3 items-center justify-between">
+      <div hidden class="md:block">
+        <div class="relative flex items-center text-[#00264A] focus-within:text-[#00264A]">
+            <span class="absolute left-4 h-6 flex items-center pr-3 border-r border-gray-300">
+            <svg xmlns="http://ww50w3.org/2000/svg" class="w-4 fill-current" viewBox="0 0 35.997 36.004">
+                <path id="Icon_awesome-search" data-name="search" d="M35.508,31.127l-7.01-7.01a1.686,1.686,0,0,0-1.2-.492H26.156a14.618,14.618,0,1,0-2.531,2.531V27.3a1.686,1.686,0,0,0,.492,1.2l7.01,7.01a1.681,1.681,0,0,0,2.384,0l1.99-1.99a1.7,1.7,0,0,0,.007-2.391Zm-20.883-7.5a9,9,0,1,1,9-9A8.995,8.995,0,0,1,14.625,23.625Z"></path>
+            </svg>
+            </span>
+            <input type="text" name="judul" id="judul" autocomplete="off" placeholder="Search book's title" class="w-full pl-14 pr-4 py-2.5 rounded-xl text-sm text-[#00264A] outline-none border border-gray-300 focus:border-[#00264A] transition">
+          </div>
         </div>
     </div>
-</form>
+  </form>
+</div>
 
     <div class="min-h-screen bg-gradient-to-tr flex justify-center items-center mb-10">
       <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 space-y-4 md:space-y-5">
         @foreach ($books as $book)
         <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
           <div class="relative">
+            <a href="{{ route('account.borrow') }}">
             <img src="{{ url('storage/' . $book->foto) }}" class="h-96 w-full object-cover" draggable="false"/>
+          </a>
             <p class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">{{ $book->th_terbit }}</p>
             <p class="absolute bottom-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-lt-lg rounded-br-lg">
               @foreach ($book->kategoris as $kategori)
@@ -88,15 +83,15 @@
 <section class="bg-gray-100" id="aboutus">
   <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div class="max-w-lg">
+          <div class="max-w-full">
               <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
-              <p class="mt-4 text-gray-600 text-lg">
+              <p class="mt-4 text-gray-600 text-xl">
                 Pustakalaya is a digital library to facilitate building the future of literacy in Indonesia. 
                 We are committed to presenting innovative solutions in the world of literacy, as well as 
                 encouraging equitable and quality access to education for all levels of society.</p>
           </div>
           <div class="mt-12 md:mt-0">
-              <img src="{{ URL('images/img.jpg') }}" alt="About Us Image" class="object-cover rounded-lg shadow-md transform transition duration-500 hover:scale-110">
+              <img src="{{ URL('images/about.png') }}" alt="About Us Image" class="w-full h-96 object-cover rounded-lg shadow-md transform transition duration-500 hover:scale-110">
           </div>
       </div>
   </div>

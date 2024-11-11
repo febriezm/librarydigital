@@ -8,17 +8,17 @@
     <!-- navigation -->
     <nav class="nav font-semibold text-lg">
         <ul class="flex items-center">
-            <li class="p-4 border-b-2 border-[#00264A] border-opacity-0 hover:border-opacity-100 hover:text-bg-[#00264A] duration-200 cursor-pointer">
-              <a href="{{ route('account.dashboard') }}" @if(request()->route()->uri == 'dashboard') class='active' @endif>Dashboard</a>
+            <li class="p-4 hover:text-gray-400 cursor-pointer">
+              <x-nav-link href="{{ route('account.dashboard') }}" :active="Route::is('account.dashboard')">Dashboard</x-nav-link>
             </li>
-            <li class="p-4 border-b-2 border-[#00264A] border-opacity-0 hover:border-opacity-100 hover:text-bg-[#00264A] duration-200 cursor-pointer">
-              <a href="{{ route('account.books') }}" @if(request()->route()->uri == 'booklist') class='active' @endif>Books</a>
+            <li class="p-4 hover:text-gray-400 cursor-pointer">
+              <x-nav-link href="{{ route('account.books') }}" :active="Route::is('account.books')">Books</x-nav-link>
             </li>
-            <li class="p-4 border-b-2 border-[#00264A] border-opacity-0 hover:border-opacity-100 hover:text-bg-[#00264A] duration-200 cursor-pointer">
-              <a href="{{ route('account.borrow') }}" @if(request()->route()->uri == 'borrow') class='active' @endif>Borrow</a>
+            <li class="p-4 hover:text-gray-400 cursor-pointer">
+              <x-nav-link href="{{ route('account.borrow') }}" :active="Route::is('account.borrow')">Borrow</x-nav-link>
             </li>
-            <li class="p-4 border-b-2 border-[#00264A] border-opacity-0 hover:border-opacity-100 hover:text-bg-[#00264A] duration-200 cursor-pointer">
-              <a href="{{ route('account.reviews') }}">Reviews</a>
+            <li class="p-4 hover:text-gray-400 cursor-pointer">
+              <x-nav-link href="{{ route('account.reviews') }}" :active="Route::is('account.reviews')">Reviews</x-nav-link>
             </li>
         </ul>
     </nav>

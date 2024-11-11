@@ -11,18 +11,15 @@ class PublicController extends Controller
     // This method will show book page
     public function index(Request $request) 
     {
-        $kategoris = Kategoribuku::all();
 
-        if ($request->namakategori) {
-            $books = Book::whereHas('kategoris', function($q) use($request) {
-                $q->where('kategoribukus.id', $request->namakategori);
-            })->get();
+        if ($request->judul) {
+            $books = Book::where('judul', 'like', '%'.$request->judul.'%')->get();
         }
         else {
             $books = Book::all();
         }
 
-        return view('welcome', ['books' => $books, 'kategoris' => $kategoris]);
+        return view('welcome', ['books' => $books]);
     }
 }
 

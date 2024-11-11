@@ -62,7 +62,7 @@
                             @enderror
 
                         <button type="submit" class="mt-5 tracking-wide font-semibold bg-[#00264A] text-white w-full py-4 rounded-lg hover:bg-[#00264a8c] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                                Sign Up
+                                Sign In
                         </button>
                       </form>
 

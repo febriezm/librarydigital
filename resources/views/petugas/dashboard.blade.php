@@ -11,7 +11,7 @@
 
     <div class="w-full px-2">
         <div class="flex flex-col items-center w-full mt-3 border-t border-gray-300"> 
-          <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
+          <a class="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-400 hover:bg-gray-300"
                 href="{{ route('petugas.dashboard') }}"> 
                 <svg class="h-6 w-6" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z"/>

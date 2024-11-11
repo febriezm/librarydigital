@@ -70,7 +70,7 @@
                   <td class="px-4 py-3 text-sm border">{{ $book->penulis }}</td>
                   <td class="px-4 py-3 text-sm border">{{ $book->penerbit }}</td>
                   <td class="px-4 py-3 text-sm border">{{ $book->th_terbit }}</td>
-                  <td class="px-4 py-3 text-sm border">{{ $book->status }}</td>
+                  <td class="px-4 py-3 text-sm border {{ $book->status == 'In stock' ? 'text-green-500' : 'text-red-500' }}">{{ $book->status }}</td>
                   <td class="text-sm border">
                   <a href="{{ route('books.edit', $book) }}">
                       <button type="submit" class="px-7 py-2 rounded-md font-semibold">
