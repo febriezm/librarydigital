@@ -10,6 +10,13 @@
         </div>
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                 <div class="flex flex-col items-center">
+
+                  <!-- alert success -->
+                  @if (Session::has('success'))
+                  <x-alertsuccess>
+                  {{ Session::get('success') }} 
+                  </x-alertsuccess>
+                  @endif
     
                   <!-- alert error -->
                   @if (Session::has('error'))
